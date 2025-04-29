@@ -39,16 +39,18 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
             alt={`Gallery image ${index + 1}`}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-30" />
+          {/* Gradient overlay con tonos de verde */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-maskani-dark-green/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-maskani-dark-green/20 to-transparent mix-blend-overlay" />
         </div>
       ))}
       <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2">
         {images.length > 1 && images.map((_, index) => (
           <button
             key={index}
-            className={`w-2 h-2 rounded-full ${
-              index === activeIndex ? 'bg-white' : 'bg-white/50'
-            }`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === activeIndex ? 'bg-maskani-light-green scale-110' : 'bg-white/50'
+            } shadow-md`}
             onClick={() => setActiveIndex(index)}
             aria-label={`View image ${index + 1}`}
             aria-current={index === activeIndex}

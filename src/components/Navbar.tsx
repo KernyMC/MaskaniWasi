@@ -28,8 +28,8 @@ const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white shadow-md py-2"
-          : "bg-transparent py-4"
+          ? "bg-white/70 backdrop-blur-lg shadow-md py-2 border-b border-white/20"
+          : "bg-black/10 backdrop-blur-md py-4"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
               alt="Maskani Wasi Logo"
               className="h-10 w-10"
             />
-            <span className="ml-2 text-lg font-semibold hidden md:inline-block text-maskani-dark-green">
+            <span className={`ml-2 text-lg font-semibold hidden md:inline-block ${isScrolled ? 'text-maskani-dark-green' : 'text-white font-bold drop-shadow-md'}`}>
               MASKANI WASI
             </span>
           </Link>
@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-1">
           <div className="nav-link">
-            QUIÉNES SOMOS
+            <span className={`font-medium ${isScrolled ? 'text-maskani-dark-green' : 'text-white font-bold drop-shadow-md'}`}>QUIÉNES SOMOS</span>
             <div className="nav-dropdown">
               <Link to="/historia" className="dropdown-item">Historia</Link>
               <Link to="/donde-estamos" className="dropdown-item">Dónde estamos</Link>
@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
           </div>
           
           <div className="nav-link">
-            NUESTRO TRABAJO
+            <span className={`font-medium ${isScrolled ? 'text-maskani-dark-green' : 'text-white font-bold drop-shadow-md'}`}>NUESTRO TRABAJO</span>
             <div className="nav-dropdown">
               <Link to="/vision" className="dropdown-item">Visión</Link>
               <Link to="/mision" className="dropdown-item">Misión</Link>
@@ -76,7 +76,7 @@ const Navbar: React.FC = () => {
           </div>
           
           <div className="nav-link">
-            MASKANI WASI LODGE
+            <span className={`font-medium ${isScrolled ? 'text-maskani-dark-green' : 'text-white font-bold drop-shadow-md'}`}>MASKANI WASI LODGE</span>
             <div className="nav-dropdown">
               <Link to="/lodge" className="dropdown-item">Alojamiento y Camping</Link>
               <Link to="/lodge/rooms" className="dropdown-item">Habitaciones</Link>
@@ -94,7 +94,7 @@ const Navbar: React.FC = () => {
           </div>
           
           <div className="nav-link">
-            ECOTURISMO
+            <span className={`font-medium ${isScrolled ? 'text-maskani-dark-green' : 'text-white font-bold drop-shadow-md'}`}>ECOTURISMO</span>
             <div className="nav-dropdown">
               <Link to="/excursiones" className="dropdown-item">Excursiones</Link>
               <Link to="/expediciones" className="dropdown-item">Expediciones</Link>
@@ -104,7 +104,7 @@ const Navbar: React.FC = () => {
           </div>
           
           <div className="nav-link">
-            MEDICINA ANCESTRAL
+            <span className={`font-medium ${isScrolled ? 'text-maskani-dark-green' : 'text-white font-bold drop-shadow-md'}`}>MEDICINA ANCESTRAL</span>
             <div className="nav-dropdown">
               <Link to="/ayahuasca" className="dropdown-item">Toma de Ayahuasca</Link>
               <Link to="/hongos" className="dropdown-item">Toma de Hongos</Link>
@@ -118,7 +118,7 @@ const Navbar: React.FC = () => {
 
         {/* Mobile menu button */}
         <button
-          className="lg:hidden p-2 rounded-md text-maskani-dark-green focus:outline-none"
+          className={`lg:hidden p-2 rounded-md ${isScrolled ? 'text-maskani-dark-green' : 'text-white'} focus:outline-none`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileMenuOpen}
@@ -131,7 +131,7 @@ const Navbar: React.FC = () => {
       {/* Mobile Navigation */}
       <div
         id="mobile-menu"
-        className={`lg:hidden bg-white shadow-lg absolute w-full left-0 transition-all duration-300 overflow-hidden ${
+        className={`lg:hidden bg-white/95 backdrop-blur-lg shadow-lg absolute w-full left-0 transition-all duration-300 overflow-hidden ${
           mobileMenuOpen ? "max-h-screen" : "max-h-0"
         }`}
         aria-hidden={!mobileMenuOpen}
