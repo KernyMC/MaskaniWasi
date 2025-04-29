@@ -3,12 +3,14 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
+import WhatsAppButton from '../components/WhatsAppButton';
 
 const Index: React.FC = () => {
   return (
     <>
       <Navbar />
       <Hero />
+      <WhatsAppButton />
       <div id="about" className="py-20 bg-maskani-cream">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-display text-maskani-dark-green text-center mb-12">

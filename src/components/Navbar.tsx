@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Globe } from "lucide-react";
@@ -49,9 +48,9 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src="/placeholder.svg" 
+              src="/lovable-uploads/87169b26-c633-4fee-9737-0a924060190a.png" 
               alt="Maskani Wasi Logo"
-              className="h-10 w-10"
+              className="h-12 w-12"
             />
             <span className={`ml-2 text-lg font-semibold hidden md:inline-block ${isScrolled ? 'text-maskani-dark-green' : 'text-white font-bold drop-shadow-md'}`}>
               MASKANI WASI
