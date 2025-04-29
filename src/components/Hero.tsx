@@ -13,26 +13,28 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       <ImageGallery images={backgroundImages} />
       
-      <div className="relative z-10 container mx-auto px-4 text-center text-white animate-fade-in">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-wide mb-4 text-shadow-lg">
-          MASKANI WASI
-        </h1>
-        <p className="text-xl md:text-3xl lg:text-4xl font-display italic mb-8 text-maskani-cream text-shadow-lg">
-          Sembrando hoy un futuro sostenible
-        </p>
-        <div className="max-w-3xl mx-auto">
-          <p className="text-base md:text-lg bg-black/40 backdrop-blur-sm p-6 rounded-lg border border-white/10 shadow-xl">
-            Un proyecto amazónico que integra la protección del bosque y la riqueza cultural de la región. 
-            A través de iniciativas sostenibles, busca responder a los desafíos socioambientales de este territorio, 
-            promoviendo la conservación y el desarrollo comunitario en armonía con la naturaleza.
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="relative z-10 container mx-auto px-4 text-center text-white animate-fade-in">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-wide mb-4 text-shadow-lg">
+            MASKANI WASI
+          </h1>
+          <p className="text-xl md:text-3xl lg:text-4xl font-display italic mb-8 text-maskani-cream text-shadow-lg">
+            Sembrando hoy un futuro sostenible
           </p>
-        </div>
-        
-        <div className="mt-8">
-          <NewsletterButton variant="primary" className="text-lg py-3 px-8 bg-emerald-500 hover:bg-emerald-600 transition-colors shadow-lg" />
+          <div className="max-w-3xl mx-auto">
+            <p className="text-base md:text-lg bg-black/40 backdrop-blur-sm p-6 rounded-lg border border-white/10 shadow-xl">
+              Un proyecto amazónico que integra la protección del bosque y la riqueza cultural de la región. 
+              A través de iniciativas sostenibles, busca responder a los desafíos socioambientales de este territorio, 
+              promoviendo la conservación y el desarrollo comunitario en armonía con la naturaleza.
+            </p>
+          </div>
+          
+          <div className="mt-8">
+            <NewsletterButton variant="primary" className="text-lg py-3 px-8 bg-emerald-500 hover:bg-emerald-600 transition-colors shadow-lg" />
+          </div>
         </div>
       </div>
       

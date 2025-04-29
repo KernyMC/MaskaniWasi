@@ -1,13 +1,20 @@
 
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import DonateButton from "./DonateButton";
 import { Link } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState("ES");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +30,11 @@ const Navbar: React.FC = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleLanguageChange = (lang: string) => {
+    setCurrentLanguage(lang);
+    // Aquí iría la lógica para cambiar el idioma de la aplicación
+  };
 
   return (
     <header
@@ -113,19 +125,79 @@ const Navbar: React.FC = () => {
         </nav>
 
         <div className="hidden lg:flex items-center space-x-4">
+          {/* Botón de idiomas */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className={`flex items-center ${
+                  isScrolled ? "text-maskani-dark-green" : "text-white"
+                } hover:bg-white/20`}
+              >
+                <Globe className="mr-1" size={18} />
+                <span className="font-medium">{currentLanguage}</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="min-w-[100px]">
+              <DropdownMenuItem onClick={() => handleLanguageChange("ES")} className="cursor-pointer">
+                Español
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => handleLanguageChange("EN")} className="cursor-pointer">
+                English
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => handleLanguageChange("IT")} className="cursor-pointer">
+                Italiano
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => handleLanguageChange("FR")} className="cursor-pointer">
+                Français
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <DonateButton />
         </div>
 
         {/* Mobile menu button */}
-        <button
-          className={`lg:hidden p-2 rounded-md ${isScrolled ? 'text-maskani-dark-green' : 'text-white'} focus:outline-none`}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileMenuOpen}
-          aria-controls="mobile-menu"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="lg:hidden flex items-center space-x-2">
+          {/* Botón de idiomas móvil */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className={`${isScrolled ? "text-maskani-dark-green" : "text-white"} p-1`}
+                aria-label="Cambiar idioma"
+              >
+                <Globe size={22} />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="min-w-[100px]">
+              <DropdownMenuItem onClick={() => handleLanguageChange("ES")} className="cursor-pointer">
+                Español
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => handleLanguageChange("EN")} className="cursor-pointer">
+                English
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => handleLanguageChange("IT")} className="cursor-pointer">
+                Italiano
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => handleLanguageChange("FR")} className="cursor-pointer">
+                Français
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <button
+            className={`p-2 rounded-md ${isScrolled ? 'text-maskani-dark-green' : 'text-white'} focus:outline-none`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
