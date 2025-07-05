@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ImageGallery from './ImageGallery';
 import NewsletterButton from './NewsletterButton';
