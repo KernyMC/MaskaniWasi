@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
         <div className="relative z-10 container mx-auto px-4 text-center text-white animate-fade-in">
           <div className="flex justify-center mb-6">
             <img 
-              src="/lovable-uploads/87169b26-c633-4fee-9737-0a924060190a.png"
+              src="/maskaniwasi.png"
               alt="Maskani Wasi Logo"
               className="h-24 w-24 md:h-32 md:w-32"
             />

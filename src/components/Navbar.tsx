@@ -48,7 +48,7 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src="/lovable-uploads/87169b26-c633-4fee-9737-0a924060190a.png" 
+              src="/maskaniwasi.png"
               alt="Maskani Wasi Logo"
               className="h-12 w-12"
             />
